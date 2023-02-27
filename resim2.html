@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resim</title>
+    <style>
+        body {
+  
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1000px;
+        }
+
+        .container img {
+            object-fit: cover;
+            margin: 10px;
+            height: 300px;
+            width: 300px;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1 class="title">Resim Galerisi</h1>
+    <div class="container"></div>
+    <script>
+        const container=document.querySelector(".container")
+        const unslashurl="https://source.unsplash.com/random/"
+        const rows=5
+        for(let i=0;i<rows*3;i++){
+            const img=document.createElement("img")
+            img.src=`${unslashurl}${getRandomSize()}`
+            container.appendChild(img)
+        }
+        function getRandomNumber(){
+            return Math.floor(Math.random()*10)+300
+        }
+
+        function getRandomSize(){
+            return `${getRandomNumber()}x${getRandomNumber()}`
+        }
+    </script>
+</body>
+</html>
